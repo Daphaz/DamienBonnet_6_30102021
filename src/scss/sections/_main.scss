@@ -1,0 +1,57 @@
+.main {
+  &__title {
+    @extend %title-36;
+    text-align: right;
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 117px;
+    z-index: -1;
+    color: $clr_red400;
+
+    @include xxl {
+      padding-right: 60px;
+      top: 50px;
+    }
+    @include xl {
+      padding-right: 40px;
+      top: 54px;
+    }
+
+    @include sm {
+      padding-right: 20px;
+    }
+  }
+
+  &__list {
+    @extend %center;
+    flex-wrap: wrap;
+    row-gap: 47px;
+    padding: 100px 72px 60px;
+
+    .card {
+      width: 33.333%;
+      max-width: 100%;
+      min-width: 270px;
+
+      @include lg {
+        width: 50%;
+      }
+      @include md {
+        width: 100%;
+      }
+    }
+
+    @include xxl {
+      padding: 52px 52px 80px;
+    }
+    @include xl {
+      padding: 46px 40px 40px;
+    }
+    @include sm {
+      row-gap: 29px;
+      padding: 46px 20px 20px;
+    }
+  }
+}
