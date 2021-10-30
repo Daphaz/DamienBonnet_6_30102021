@@ -1,0 +1,28 @@
+:root {
+	--clr-white: #ffffff;
+	--clr-black: #000000;
+	--clr-grey400: #525252;
+	--clr-grey300: #757575;
+	--clr-grey200: #c4c4c4;
+	--clr-grey100: #fafafa;
+	--clr-red400: #901c1c;
+	--clr-red300: #d3573c;
+	--clr-red200: #db8876;
+}
+
+// Colors.
+$clr_white: var(--clr-white);
+$clr_black: var(--clr-black);
+$clr_grey400: var(--clr-grey400);
+$clr_grey300: var(--clr-grey300);
+$clr_grey200: var(--clr-grey200);
+$clr_grey100: var(--clr-grey100);
+$clr_red400: var(--clr-red400);
+$clr_red300: var(--clr-red300);
+$clr_red200: var(--clr-red200);
+
+// Fonts.
+$fnt_dm: "DM Sans", Arial, Helvetica, sans-serif;
+
+// Easing.
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);

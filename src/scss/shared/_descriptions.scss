@@ -1,0 +1,50 @@
+%description-9 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 0.9rem;
+	line-height: 12px;
+}
+%description-16 {
+	font-size: 1.6rem;
+}
+%description-18 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.8rem;
+	line-height: 23px;
+
+	@include sm {
+		font-size: 1.3rem;
+		line-height: 17px;
+	}
+}
+%description-24 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 2.4rem;
+	line-height: 31px;
+
+	@include xl {
+		font-size: 2rem;
+		line-height: 27px;
+	}
+	@include lg {
+		font-size: 1.8rem;
+		line-height: 25px;
+	}
+	@include sm {
+		font-size: 1.3rem;
+		line-height: 17px;
+	}
+}
+%description-36 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 3.6rem;
+	line-height: 47px;
+
+	@include sm {
+		font-size: 2.4rem;
+		line-height: 31px;
+	}
+}
