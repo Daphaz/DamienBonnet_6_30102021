@@ -1,0 +1,62 @@
+.photographer {
+	padding: 40px 100px 40px;
+
+	@include xxl {
+		padding: 0 60px 40px;
+	}
+
+	@include xl {
+		padding: 40px;
+	}
+
+	@include sm {
+		padding: 20px;
+	}
+
+	&__sort {
+		position: relative;
+		display: flex;
+		padding-top: 9px;
+		padding-bottom: 58px;
+
+		@include sm {
+			display: none;
+		}
+	}
+
+	&__list {
+		@extend %between;
+		flex-wrap: wrap;
+		gap: 30px;
+
+		.media {
+			width: calc(33.333% - 30px);
+			max-width: 350px;
+
+			@include lg {
+				width: calc(50% - 30px);
+				margin: auto;
+			}
+			@include sm {
+				width: 100%;
+				max-width: 100%;
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+			}
+			@include xs {
+				&__body,
+				&__footer {
+					max-width: 100%;
+				}
+				&__body {
+					height: 190px;
+				}
+			}
+		}
+
+		@include sm {
+			display: block;
+		}
+	}
+}
