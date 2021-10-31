@@ -32,7 +32,7 @@ const CardPhotographer = ({
 				to={`/photographer-page/${id}`}
 				className="card__header"
 				aria-label={name}>
-				<img src={`assets/profile/${portrait}`} alt="" />
+				<img src={`/assets/profile/${portrait}`} alt="" />
 				<h2>{name}</h2>
 			</Link>
 			<div className="card__body">
