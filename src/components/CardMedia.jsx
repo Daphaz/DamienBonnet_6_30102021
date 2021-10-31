@@ -1,11 +1,14 @@
 import React from "react";
 
-const CardMedia = ({ title, image, alt, video, likes, onclick, id }) => {
+const CardMedia = ({ onclick, handleClickMedia, ...rest }) => {
+	const { title, image, alt, video, likes, id } = rest;
 	return (
 		<figure className="media">
 			<div
+				role="img link"
 				className="media__body"
-				aria-label="Lilac breasted roller, closeup view">
+				aria-label="Lilac breasted roller, closeup view"
+				onClick={() => handleClickMedia(rest)}>
 				{image && <img src={`/assets/media/${image}`} alt={alt} />}
 				{video && (
 					<video width="350" height="300">
