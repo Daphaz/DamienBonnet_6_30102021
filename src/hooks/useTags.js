@@ -1,4 +1,4 @@
-import data from "../mock/data.json";
+import data from "../mock/tags.json";
 
 const useTags = () => {
 	const tags = data.tags;
