@@ -2,9 +2,25 @@ import React from "react";
 import closeWhite from "../assets/close-white.svg";
 
 const ModalContact = ({ name }) => {
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		const values = {
+			firstname: e.target.firstname.value,
+			lastname: e.target.lastname.value,
+			email: e.target.email.value,
+			message: e.target.message.value,
+		};
+
+		console.log(values);
+	};
+
 	return (
 		<div className="form__contact">
-			<form className="form" aria-labelledby="contact-title">
+			<form
+				className="form"
+				aria-labelledby="contact-title"
+				onSubmit={handleSubmit}>
 				<button className="form__close" aria-label="Close Contact form">
 					<img src={closeWhite} alt="" />
 				</button>
@@ -28,10 +44,10 @@ const ModalContact = ({ name }) => {
 					/>
 				</div>
 				<div className="form__control">
-					<label id="inp-2" htmlFor="name" aria-label="Last name">
+					<label id="inp-2" htmlFor="lastname" aria-label="Last name">
 						Nom
 					</label>
-					<input type="text" name="name" id="name" aria-labelledby="inp-2" />
+					<input type="text" name="lastname" id="lastname" aria-labelledby="inp-2" />
 				</div>
 				<div className="form__control">
 					<label id="inp-3" htmlFor="email" aria-label="Email">
