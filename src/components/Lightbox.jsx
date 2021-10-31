@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import arrowLeft from "../assets/arrow-left.svg";
 import arrowRight from "../assets/arrow-right.svg";
 import Close from "../assets/close.svg";
+import useKeyboard from "../hooks/useKeyboard";
 
 const LightboxItem = ({ title, image, alt, video, className }) => (
 	<picture className={className}>
@@ -18,6 +19,8 @@ const LightboxItem = ({ title, image, alt, video, className }) => (
 
 const Lightbox = ({ items, firstItem, handleClose }) => {
 	const [slideIndex, setSlideIndex] = useState();
+
+	const { key, setKey } = useKeyboard();
 
 	const getFirstIndex = useCallback(() => {
 		const findIndex = items.findIndex((item) => item.id === firstItem.id);
@@ -46,6 +49,16 @@ const Lightbox = ({ items, firstItem, handleClose }) => {
 			setSlideIndex(items.length);
 		}
 	};
+
+	useEffect(() => {
+		if (key === "prev") {
+			prevSlide();
+			setKey(null);
+		} else if (key === "next") {
+			nextSlide();
+			setKey(null);
+		}
+	});
 
 	return (
 		<div className="lightbox">
