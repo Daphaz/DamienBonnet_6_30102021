@@ -1,6 +1,7 @@
 .media {
 	flex-grow: 1;
 	&__body {
+		cursor: pointer;
 		position: relative;
 		height: 300px;
 		width: 100%;
