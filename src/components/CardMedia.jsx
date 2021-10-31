@@ -9,7 +9,9 @@ const CardMedia = ({ onclick, handleClickMedia, ...rest }) => {
 				className="media__body"
 				aria-label="Lilac breasted roller, closeup view"
 				onClick={() => handleClickMedia(rest)}>
-				{image && <img src={`/assets/media/${image}`} alt={alt} />}
+				{image && (
+					<img src={`/assets/media/${image}`} width="350" height="300" alt={alt} />
+				)}
 				{video && (
 					<video width="350" height="300">
 						<source src={`/assets/media/${video}`} type="video/mp4" />

@@ -6,7 +6,9 @@ import useKeyboard from "../hooks/useKeyboard";
 
 const LightboxItem = ({ title, image, alt, video, className }) => (
 	<picture className={className}>
-		{image && <img src={`/assets/media/${image}`} alt={alt} />}
+		{image && (
+			<img src={`/assets/media/${image}`} alt={alt} width="1050" height="900" />
+		)}
 		{video && (
 			<video width="1050" height="900" controls>
 				<source src={`/assets/media/${video}`} type="video/mp4" />
