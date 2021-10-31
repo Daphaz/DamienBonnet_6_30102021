@@ -11,12 +11,14 @@ import useProfile from "../hooks/useProfile";
 import { hasNumber } from "../utils";
 import TotalLike from "../components/TotalLike";
 import Lightbox from "../components/Lightbox";
+import ModalContact from "../components/ModalContact";
 
 const PhotographerScreen = ({ match: { params } }) => {
 	const [total, setTotal] = useState();
 	const [ids, setIds] = useState([]);
 	const [isFetch, setIsFetch] = useState(false);
 	const [openModal, setOpenModal] = useState(false);
+	const [openContact, setOpenContact] = useState(false);
 	const [itemMedia, setItemMedia] = useState(null);
 
 	const { profile } = useProfile(Number(params.id));
@@ -73,6 +75,10 @@ const PhotographerScreen = ({ match: { params } }) => {
 		setOpenModal(false);
 	};
 
+	const handleOpenContactModal = () => {
+		setOpenContact(true);
+	};
+
 	if (!hasNumber(params.id)) return <Redirect to="/not-found" />;
 
 	if (profile && photographerMedias) {
@@ -86,6 +92,7 @@ const PhotographerScreen = ({ match: { params } }) => {
 								<div className="profile__line">
 									<h1 className="profile__title">{profile.name}</h1>
 									<button
+										onClick={handleOpenContactModal}
 										className="btn btn-primary profile__btn"
 										aria-label="Contact-me">
 										Contactez-moi
@@ -142,6 +149,7 @@ const PhotographerScreen = ({ match: { params } }) => {
 							)}
 						</div>
 						<TotalLike price={profile.price} total={total} />
+						{openContact && <ModalContact name={profile.name} />}
 					</main>
 				</>
 			);
