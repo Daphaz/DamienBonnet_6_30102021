@@ -79,6 +79,10 @@ const PhotographerScreen = ({ match: { params } }) => {
 		setOpenContact(true);
 	};
 
+	const handleCloseModalContact = () => {
+		setOpenContact(false);
+	};
+
 	if (!hasNumber(params.id)) return <Redirect to="/not-found" />;
 
 	if (profile && photographerMedias) {
@@ -144,12 +148,17 @@ const PhotographerScreen = ({ match: { params } }) => {
 								))
 							) : (
 								<div aria-errormessage="No images found with this hastag">
-									Nous n'avons pas trouvée d'images avec se Hashtag..
+									Nous n'avons pas trouvé d'image avec ce Hashtag..
 								</div>
 							)}
 						</div>
 						<TotalLike price={profile.price} total={total} />
-						{openContact && <ModalContact name={profile.name} />}
+						{openContact && (
+							<ModalContact
+								name={profile.name}
+								handleClose={handleCloseModalContact}
+							/>
+						)}
 					</main>
 				</>
 			);

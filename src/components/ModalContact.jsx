@@ -1,7 +1,7 @@
 import React from "react";
 import closeWhite from "../assets/close-white.svg";
 
-const ModalContact = ({ name }) => {
+const ModalContact = ({ name, handleClose }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -21,7 +21,11 @@ const ModalContact = ({ name }) => {
 				className="form"
 				aria-labelledby="contact-title"
 				onSubmit={handleSubmit}>
-				<button className="form__close" aria-label="Close Contact form">
+				<button
+					type="button"
+					className="form__close"
+					aria-label="Close Contact form"
+					onClick={handleClose}>
 					<img src={closeWhite} alt="" />
 				</button>
 				<h1
