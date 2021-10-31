@@ -21,7 +21,7 @@ const sortItems = [
 	},
 ];
 
-const Dropdown = () => {
+const Dropdown = ({ orderByDate, orderByPopularity, orderByTitle }) => {
 	const [open, setOpen] = useState(false);
 	const [items, setItems] = useState(sortItems);
 	const [current, setCurrent] = useState(null);
@@ -36,7 +36,22 @@ const Dropdown = () => {
 		setOpen(!open);
 	};
 
-	const handleChangeCurrent = (id) => {
+	const handleChangeCurrent = (id, name) => {
+		switch (name) {
+			case "Popularité":
+				orderByPopularity();
+				break;
+			case "Date":
+				orderByDate();
+				break;
+			case "Titre":
+				orderByTitle();
+				break;
+
+			default:
+				break;
+		}
+
 		const itemsChanged = items.map((item) =>
 			item.id === id ? { ...item, active: true } : { ...item, active: false }
 		);
@@ -68,7 +83,7 @@ const Dropdown = () => {
 									key={item.id}
 									className="dropdown__option"
 									aria-label={`Trier par ${item.name}`}
-									onClick={() => handleChangeCurrent(item.id)}>
+									onClick={() => handleChangeCurrent(item.id, item.name)}>
 									{item.name}
 								</li>
 							)
