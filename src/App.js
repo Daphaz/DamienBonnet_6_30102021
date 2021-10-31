@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import HomeScreen from "./pages/HomeScreen";
+import PhotographerScreen from "./pages/PhotographerScreen";
+import FourOneFour from "./pages/FourOneFour";
+
+const routes = [
+	{
+		key: "screen-home",
+		path: "/",
+		component: HomeScreen,
+	},
+	{
+		key: "screen-photographer",
+		path: "/photographer-page/:id",
+		component: PhotographerScreen,
+	},
+];
+
+const App = () => {
+	return (
+		<Switch>
+			{routes.map((route) => (
+				<Route exact {...route} />
+			))}
+			<Redirect from="/home" to="/" />
+			<Route path="*" component={FourOneFour} />
+		</Switch>
+	);
+};
 
 export default App;

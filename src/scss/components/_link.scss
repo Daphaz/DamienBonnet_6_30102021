@@ -1,0 +1,19 @@
+.link {
+  font-family: $fnt_dm;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 16px;
+  text-align: center;
+  padding: 3px 6px;
+  border-radius: 11px;
+  border: 0.5px solid $clr_grey300;
+  color: $clr_red400;
+  background-color: transparent;
+  transition: all 0.3s ease;
+
+  &:focus,
+  &:hover {
+    color: $clr_white;
+    background-color: $clr_red400;
+  }
+}

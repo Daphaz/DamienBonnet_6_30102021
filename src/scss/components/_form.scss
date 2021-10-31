@@ -1,0 +1,127 @@
+.form {
+	position: relative;
+	width: 100%;
+	max-width: 670px;
+	background-color: $clr_red200;
+	color: $clr_black;
+	border-radius: 5px;
+	mix-blend-mode: normal;
+	filter: drop-shadow(-5px 10px 30px rgba(0, 0, 0, 0.25));
+	padding: 15px 35px 35px;
+	transition: all 0.3s ease;
+	overflow-y: auto;
+
+	@include xl {
+		padding: 20px 26px 26px;
+		max-width: 100%;
+		border-radius: 0px;
+		height: 100%;
+	}
+
+	&__contact {
+		@extend %center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(196, 196, 196, 0.4);
+		z-index: 5;
+	}
+
+	&__title {
+		@extend %title-64;
+		padding-bottom: 20px;
+
+		@include xxs {
+			font-size: 2.4rem;
+			line-height: 28px;
+			padding-bottom: 5px;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 35px;
+		right: 35px;
+
+		@include md {
+			top: 26px;
+			right: 26px;
+
+			img {
+				width: 18px;
+			}
+		}
+	}
+
+	&__control {
+		label {
+			display: block;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 3.6rem;
+			line-height: 47px;
+			color: $clr_grey500;
+			padding-bottom: 4px;
+
+			@include md {
+				font-size: 2.4rem;
+				line-height: 31px;
+			}
+		}
+		input,
+		textarea {
+			font-family: $fnt_dm;
+			display: block;
+			width: 100%;
+			background: #ffffff;
+			border-radius: 5px;
+			color: $clr_black;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 1.8rem;
+			line-height: 29px;
+			padding: 19px 15px;
+			border: none;
+			outline: none;
+
+			@include md {
+				font-size: 1.6rem;
+				line-height: 27px;
+				padding: 13px 10px;
+			}
+		}
+
+		textarea {
+			min-height: 170px;
+			resize: vertical;
+		}
+
+		@include md {
+			padding-bottom: 14px;
+		}
+	}
+
+	&__btn {
+		padding-top: 26px;
+
+		@include md {
+			text-align: center;
+			padding-top: 12px;
+		}
+
+		@include xxs {
+			padding-top: 6px;
+		}
+
+		& .btn {
+			width: 100%;
+			max-width: 170px;
+
+			@include md {
+				padding: 7px;
+			}
+		}
+	}
+}
