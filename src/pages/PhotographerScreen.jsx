@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Redirect } from "react-router";
 
 import Dropdown from "../components/Dropdown";
@@ -9,14 +9,60 @@ import useMedia from "../hooks/useMedia";
 import useProfile from "../hooks/useProfile";
 
 import { hasNumber } from "../utils";
+import TotalLike from "../components/TotalLike";
 
 const PhotographerScreen = ({ match: { params } }) => {
+	const [total, setTotal] = useState();
+	const [ids, setIds] = useState([]);
+	const [isFetch, setIsFetch] = useState(false);
 	const { profile } = useProfile(Number(params.id));
-	const { media } = useMedia(Number(params.id));
+	const {
+		photographerMedias,
+		orderByDate,
+		orderByPopularity,
+		orderByTitle,
+		filterByTag,
+		incrementLikeMedia,
+	} = useMedia(Number(params.id));
+
+	const getTotalPrice = useCallback(
+		(medias) => {
+			if (!isFetch) {
+				const totalLikes = medias.reduce((acc, item) => {
+					return acc + item.likes;
+				}, 0);
+
+				setTotal(totalLikes);
+				setIsFetch(true);
+			}
+		},
+		[isFetch]
+	);
+
+	const incrementLike = (mediaId) => {
+		if (ids.length === 0) {
+			setTotal((prev) => prev + 1);
+			setIds((prev) => [...prev, mediaId]);
+			incrementLikeMedia(mediaId);
+		} else {
+			const findMedia = ids.find((id) => id === mediaId);
+			if (!findMedia) {
+				setTotal((prev) => prev + 1);
+				setIds((prev) => [...prev, mediaId]);
+				incrementLikeMedia(mediaId);
+			}
+		}
+	};
+
+	useEffect(() => {
+		if (photographerMedias && !isFetch) {
+			getTotalPrice(photographerMedias);
+		}
+	}, [photographerMedias, getTotalPrice, isFetch]);
 
 	if (!hasNumber(params.id)) return <Redirect to="/not-found" />;
 
-	if (profile) {
+	if (profile && photographerMedias) {
 		return (
 			<>
 				<Header />
@@ -36,7 +82,11 @@ const PhotographerScreen = ({ match: { params } }) => {
 							<ul className="profile__list">
 								{profile.tags.map((tag) => (
 									<li key={`profile-item-${tag}`}>
-										<button type="button" className="link" aria-label={`Tag ${tag}`}>
+										<button
+											type="button"
+											className="link"
+											aria-label={`Tag ${tag}`}
+											onClick={() => filterByTag(tag)}>
 											#{tag}
 										</button>
 									</li>
@@ -55,11 +105,32 @@ const PhotographerScreen = ({ match: { params } }) => {
 							htmlFor="select-sort">
 							Trier par
 						</label>
-						<Dropdown />
+						<Dropdown
+							orderByDate={orderByDate}
+							orderByPopularity={orderByPopularity}
+							orderByTitle={orderByTitle}
+						/>
 					</div>
 					<div className="photographer__list">
-						{media && media.map((item) => <CardMedia key={item.id} {...item} />)}
+						{photographerMedias.length > 0 ? (
+							photographerMedias.map((item) => (
+								<CardMedia key={item.id} {...item} onclick={incrementLike} />
+							))
+						) : (
+							<div aria-errormessage="No images found with this hastag">
+								Nous n'avons pas trouvée d'images avec se Hashtag..
+							</div>
+						)}
 					</div>
+					{/* <div className="photographer__count__container">
+						<div className="photographer__count" aria-hidden>
+							<span className="photographer__likes">
+								{total} <img src="/assets/like-black.svg" alt="likes" />
+							</span>
+							<span className="photographer__price">{profile.price}€/jour</span>
+						</div>
+					</div> */}
+					<TotalLike price={profile.price} total={total} />
 				</main>
 			</>
 		);
