@@ -19,6 +19,9 @@
 			@include sm {
 				max-width: 150px;
 			}
+			@include xxs {
+				max-width: 100px;
+			}
 		}
 	}
 
