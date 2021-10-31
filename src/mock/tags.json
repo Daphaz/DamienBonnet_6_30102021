@@ -1,0 +1,44 @@
+{
+  "tags":[
+    {
+      "name": "Portrait",
+      "ariaLabel": "Tag Portrait",
+      "tabindex": 0
+    },
+    {
+      "name": "Art",
+      "ariaLabel": "Tag Art",
+      "tabindex": 1
+    },
+    {
+      "name": "Fashion",
+      "ariaLabel": "Tag Fashion",
+      "tabindex": 2
+    },
+    {
+      "name": "Architecture",
+      "ariaLabel": "Tag Architecture",
+      "tabindex": 3
+    },
+    {
+      "name": "Travel",
+      "ariaLabel": "Tag Travel",
+      "tabindex": 4
+    },
+    {
+      "name": "Sport",
+      "ariaLabel": "Tag Sport",
+      "tabindex": 5
+    },
+    {
+      "name": "Animals",
+      "ariaLabel": "Tag Animals",
+      "tabindex": 6
+    },
+    {
+      "name": "Events",
+      "ariaLabel": "Tag Events",
+      "tabindex": 7
+    }
+  ]
+}
