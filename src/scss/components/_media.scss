@@ -20,6 +20,15 @@
 			object-fit: cover;
 			object-position: center 33.3333%;
 		}
+
+		.spin-container {
+			@extend %center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 	}
 	&__footer {
 		@extend %between;

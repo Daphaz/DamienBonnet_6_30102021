@@ -60,14 +60,13 @@ const Dropdown = ({ orderByDate, orderByPopularity, orderByTitle }) => {
 	};
 
 	return (
-		<div className={`dropdown ${open ? "open" : ""}`}>
+		<div id="select-sort" className={`dropdown ${open ? "open" : ""}`}>
 			<button
 				onClick={onClick}
 				type="button"
 				aria-haspopup="listbox"
-				aria-expanded
+				aria-expanded={open}
 				aria-labelledby="label-select"
-				id="select-sort"
 				className="dropdown__btn">
 				<span className="dropdown__current">{current?.name}</span>
 				<div aria-hidden className="dropdown__icon">
@@ -80,6 +79,7 @@ const Dropdown = ({ orderByDate, orderByPopularity, orderByTitle }) => {
 						(item) =>
 							!item.active && (
 								<li
+									tabIndex="0"
 									key={item.id}
 									className="dropdown__option"
 									aria-label={`Trier par ${item.name}`}

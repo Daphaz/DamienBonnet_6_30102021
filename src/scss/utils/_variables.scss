@@ -6,9 +6,10 @@
 	--clr-grey300: #757575;
 	--clr-grey200: #c4c4c4;
 	--clr-grey100: #fafafa;
+	--clr-red500: #a36558; // best contrast
 	--clr-red400: #901c1c;
 	--clr-red300: #d3573c;
-	--clr-red200: #db8876;
+	--clr-red200: #db8876; // Poor contrast
 }
 
 // Colors.
@@ -19,6 +20,7 @@ $clr_grey400: var(--clr-grey400);
 $clr_grey300: var(--clr-grey300);
 $clr_grey200: var(--clr-grey200);
 $clr_grey100: var(--clr-grey100);
+$clr_red500: var(--clr-red500);
 $clr_red400: var(--clr-red400);
 $clr_red300: var(--clr-red300);
 $clr_red200: var(--clr-red200);

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+import Spinner from "./Spinner";
 
 const TagItem = ({ name, onClick }) => {
 	return (
@@ -26,13 +28,25 @@ const CardPhotographer = ({
 	portrait,
 	onClick,
 }) => {
+	const [loaded, setLoaded] = useState(false);
 	return (
-		<figure className="card">
+		<figure role="listitem" className="card">
 			<Link
 				to={`/photographer-page/${id}`}
 				className="card__header"
 				aria-label={name}>
-				<img src={`/assets/profile/${portrait.toLowerCase()}`} alt="" />
+				<img
+					style={loaded ? {} : { display: "none" }}
+					src={`/assets/profile/${portrait.toLowerCase()}`}
+					alt=""
+					onLoad={() => setLoaded(true)}
+				/>
+				<div
+					aria-hidden
+					className="spin-container"
+					style={!loaded ? {} : { display: "none" }}>
+					<Spinner width={30} heigh={30} />
+				</div>
 				<h2>{name}</h2>
 			</Link>
 			<div className="card__body">
