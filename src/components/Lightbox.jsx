@@ -73,7 +73,7 @@ const Lightbox = ({ items, firstItem, handleClose }) => {
 					role="link"
 					className="lightbox__btn"
 					aria-label="Previous image">
-					<img width="48" height="30" src={arrowLeft} alt="<" />
+					<img width="48" height="30" src={arrowLeft} alt="Previous slide" />
 				</button>
 				<div className="lightbox__container">
 					{items?.map((item, index) => (
@@ -91,14 +91,14 @@ const Lightbox = ({ items, firstItem, handleClose }) => {
 						aria-label="Close dialog"
 						className="lightbox__close"
 						onClick={handleClose}>
-						<img width="42" height="42" src={Close} alt="X" />
+						<img width="42" height="42" src={Close} alt="Close dialog" />
 					</button>
 					<button
 						onClick={nextSlide}
 						role="link"
 						className="lightbox__btn"
 						aria-label="Next image">
-						<img width="48" height="30" src={arrowRight} alt=">" />
+						<img width="48" height="30" src={arrowRight} alt="Next slide" />
 					</button>
 				</div>
 			</div>

@@ -118,6 +118,12 @@
 		& .btn {
 			width: 100%;
 			max-width: 170px;
+			border: 1px solid transparent;
+
+			&:hover,
+			&:focus {
+				border: 1px solid $clr_red400;
+			}
 
 			@include md {
 				padding: 7px;

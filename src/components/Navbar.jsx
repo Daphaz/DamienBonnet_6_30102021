@@ -19,7 +19,7 @@ const Navbar = ({ onClick }) => {
 	const { tags } = useTags();
 	return (
 		<nav className="header__nav" aria-label="photographer categories">
-			<ul role="navigation" className="header__list" aria-label="liste de tags">
+			<ul className="header__list" aria-label="liste de tags">
 				{tags.map((tag) => (
 					<NavItem key={`header-navitem-${tag.name}`} {...tag} onClick={onClick} />
 				))}
