@@ -1,0 +1,21 @@
+.fouronefour {
+	padding: 43px 100px 0px;
+	transition: all 0.3s ease;
+
+	p {
+		@extend %description-18;
+	}
+
+	@include xxl {
+		padding: 40px 60px;
+		display: block;
+	}
+
+	@include xl {
+		padding: 30px 40px 0px;
+	}
+
+	@include sm {
+		padding: 20px 20px 0px;
+	}
+}
