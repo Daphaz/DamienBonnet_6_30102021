@@ -8,37 +8,37 @@
     {
       "name": "Art",
       "ariaLabel": "Tag Art",
-      "tabindex": 1
+      "tabindex": 0
     },
     {
       "name": "Fashion",
       "ariaLabel": "Tag Fashion",
-      "tabindex": 2
+      "tabindex": 0
     },
     {
       "name": "Architecture",
       "ariaLabel": "Tag Architecture",
-      "tabindex": 3
+      "tabindex": 0
     },
     {
       "name": "Travel",
       "ariaLabel": "Tag Travel",
-      "tabindex": 4
+      "tabindex": 0
     },
     {
       "name": "Sport",
       "ariaLabel": "Tag Sport",
-      "tabindex": 5
+      "tabindex": 0
     },
     {
       "name": "Animals",
       "ariaLabel": "Tag Animals",
-      "tabindex": 6
+      "tabindex": 0
     },
     {
       "name": "Events",
       "ariaLabel": "Tag Events",
-      "tabindex": 7
+      "tabindex": 0
     }
   ]
 }

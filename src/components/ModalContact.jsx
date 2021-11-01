@@ -26,7 +26,7 @@ const ModalContact = ({ name, handleClose }) => {
 					className="form__close"
 					aria-label="Close Contact form"
 					onClick={handleClose}>
-					<img src={closeWhite} alt="" />
+					<img src={closeWhite} alt="Close form" />
 				</button>
 				<h1
 					id="contact-title"
