@@ -1,9 +1,11 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import HomeScreen from "./pages/HomeScreen";
-import PhotographerScreen from "./pages/PhotographerScreen";
-import FourOneFour from "./pages/FourOneFour";
+const HomeScreen = React.lazy(() => import("./pages/HomeScreen"));
+const PhotographerScreen = React.lazy(() =>
+	import("./pages/PhotographerScreen")
+);
+const FourOneFour = React.lazy(() => import("./pages/FourOneFour"));
 
 const routes = [
 	{
@@ -22,7 +24,7 @@ const App = () => {
 	return (
 		<Switch>
 			{routes.map((route) => (
-				<Route exact {...route} />
+				<Route key={route.key} exact {...route} />
 			))}
 			<Redirect from="/home" to="/" />
 			<Route path="*" component={FourOneFour} />
