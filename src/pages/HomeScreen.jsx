@@ -17,7 +17,7 @@ const HomeScreen = () => {
 				</h1>
 				<div
 					className="main__list"
-					role="listitem"
+					role="list"
 					aria-label="liste de nos photographes">
 					{photographers?.map((item) => (
 						<CardPhotographer key={item.id} {...item} onClick={filterByTag} />

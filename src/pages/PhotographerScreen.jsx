@@ -4,14 +4,17 @@ import { Redirect } from "react-router";
 import Dropdown from "../components/Dropdown";
 import Header from "../components/Header";
 import CardMedia from "../components/CardMedia";
+import Spinner from "../components/Spinner";
+import TotalLike from "../components/TotalLike";
+import Lightbox from "../components/Lightbox";
+import ModalContact from "../components/ModalContact";
+
+import LoadingScreen from "./LoadingScreen";
 
 import useMedia from "../hooks/useMedia";
 import useProfile from "../hooks/useProfile";
 
 import { hasNumber } from "../utils";
-import TotalLike from "../components/TotalLike";
-import Lightbox from "../components/Lightbox";
-import ModalContact from "../components/ModalContact";
 
 const PhotographerScreen = ({ match: { params } }) => {
 	const [total, setTotal] = useState();
@@ -20,6 +23,7 @@ const PhotographerScreen = ({ match: { params } }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [openContact, setOpenContact] = useState(false);
 	const [itemMedia, setItemMedia] = useState(null);
+	const [loaded, setLoaded] = useState(false);
 
 	const { profile } = useProfile(Number(params.id));
 	const {
@@ -104,10 +108,13 @@ const PhotographerScreen = ({ match: { params } }) => {
 								</div>
 								<p className="profile__city">{`${profile.city}, ${profile.country}`}</p>
 								<p className="profile__tagline">{profile.tagline}</p>
-								<ul className="profile__list">
+								<ul
+									className="profile__list"
+									aria-label={`liste des Tags de ${profile.name}`}>
 									{profile.tags.map((tag) => (
 										<li key={`profile-item-${tag}`}>
 											<button
+												tabIndex="0"
 												type="button"
 												className="link"
 												aria-label={`Tag ${tag}`}
@@ -119,7 +126,18 @@ const PhotographerScreen = ({ match: { params } }) => {
 								</ul>
 							</div>
 							<div className="profile__img">
-								<img src={`/assets/profile/${profile.portrait}`} alt="" />
+								<img
+									style={loaded ? {} : { display: "none" }}
+									src={`/assets/profile/${profile.portrait.toLowerCase()}`}
+									alt=""
+									onLoad={() => setLoaded(true)}
+								/>
+								<div
+									aria-hidden
+									className="spin-container"
+									style={!loaded ? {} : { display: "none" }}>
+									<Spinner width={30} heigh={30} />
+								</div>
 							</div>
 						</section>
 						<div className="photographer__sort">
@@ -136,7 +154,10 @@ const PhotographerScreen = ({ match: { params } }) => {
 								orderByTitle={orderByTitle}
 							/>
 						</div>
-						<div className="photographer__list">
+						<div
+							role="list"
+							aria-label={`Galerie d'image de ${profile.name}`}
+							className="photographer__list">
 							{photographerMedias.length > 0 ? (
 								photographerMedias.map((item) => (
 									<CardMedia
@@ -173,7 +194,7 @@ const PhotographerScreen = ({ match: { params } }) => {
 		);
 	}
 
-	return <div>Loading...</div>;
+	return <LoadingScreen />;
 };
 
 export default PhotographerScreen;
