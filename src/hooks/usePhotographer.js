@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import data from "../mock/data.json";
+import data from "../mock/datas.json";
 
 const usePhotographer = () => {
 	const [photographers, setPhotographers] = useState(null);

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import data from "../mock/data.json";
+import data from "../mock/datas.json";
 
 const useMedia = (photographerId) => {
 	const [photographerMedias, setPhotographerMedia] = useState(null);
