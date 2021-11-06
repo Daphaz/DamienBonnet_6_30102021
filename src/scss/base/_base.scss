@@ -1,56 +1,57 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 html {
-  font-size: 10px;
-  line-height: 1;
+	font-size: 10px;
+	line-height: 1;
+	scroll-behavior: smooth;
 }
 
 body {
-  position: relative;
-  @extend %description-16;
-  font-family: $fnt_dm;
-  background-color: $clr_white;
-  color: $clr_black;
+	position: relative;
+	@extend %description-16;
+	font-family: $fnt_dm;
+	background-color: $clr_white;
+	color: $clr_black;
 
-  transition: 0.3s ease;
+	transition: 0.3s ease;
 
-  &.no-scroll {
-    @include lg {
-      overflow: hidden;
-    }
-  }
+	&.no-scroll {
+		@include lg {
+			overflow: hidden;
+		}
+	}
 
-  &.fix-scroll {
-    overflow: hidden;
-    @include xl {
-      overflow: initial;
-    }
-  }
+	&.fix-scroll {
+		overflow: hidden;
+		@include xl {
+			overflow: initial;
+		}
+	}
 }
 
 a {
-  text-decoration: none;
-  outline: none;
-  color: inherit;
+	text-decoration: none;
+	outline: none;
+	color: inherit;
 }
 
 button {
-  cursor: pointer;
-  color: inherit;
-  background: none;
-  border: none;
-  outline: none;
+	cursor: pointer;
+	color: inherit;
+	background: none;
+	border: none;
+	outline: none;
 }
 
 .container {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  transition: 0.3s ease;
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+	transition: 0.3s ease;
 }
