@@ -4,7 +4,6 @@ import { Redirect } from "react-router";
 import Dropdown from "../components/Dropdown";
 import Header from "../components/Header";
 import CardMedia from "../components/CardMedia";
-import Spinner from "../components/Spinner";
 import TotalLike from "../components/TotalLike";
 import Lightbox from "../components/Lightbox";
 import ModalContact from "../components/ModalContact";
@@ -23,7 +22,6 @@ const PhotographerScreen = ({ match: { params } }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [openContact, setOpenContact] = useState(false);
 	const [itemMedia, setItemMedia] = useState(null);
-	const [loaded, setLoaded] = useState(false);
 
 	const { profile } = useProfile(Number(params.id));
 	const {
@@ -126,18 +124,7 @@ const PhotographerScreen = ({ match: { params } }) => {
 								</ul>
 							</div>
 							<div className="profile__img">
-								<img
-									style={loaded ? {} : { display: "none" }}
-									src={`/assets/profile/${profile.portrait}`}
-									alt=""
-									onLoad={() => setLoaded(true)}
-								/>
-								<div
-									aria-hidden
-									className="spin-container"
-									style={!loaded ? {} : { display: "none" }}>
-									<Spinner width={30} heigh={30} />
-								</div>
+								<img src={`/assets/profile/${profile.portrait}`} alt="" />
 							</div>
 						</section>
 						<div className="photographer__sort">
