@@ -105,6 +105,11 @@
 	}
 
 	&__btn {
+		border: 1px solid transparent;
+		&:focus {
+			border: 1px solid $clr_red400;
+		}
+
 		@include lg {
 			img {
 				width: 24px;
@@ -121,6 +126,10 @@
 	&__close {
 		position: absolute;
 		top: 15px;
+		border: 1px solid transparent;
+		&:focus {
+			border: 1px solid $clr_red400;
+		}
 
 		@include lg {
 			top: 4px;

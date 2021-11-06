@@ -123,13 +123,14 @@ const PhotographerScreen = ({ match: { params } }) => {
 									))}
 								</ul>
 							</div>
-							<div className="profile__img">
+							<div aria-hidden className="profile__img">
 								<img src={`/assets/profile/${profile.portrait}`} alt="" />
 							</div>
 						</section>
 						<div className="photographer__sort">
 							<label
 								id="label-select"
+								tabIndex="0"
 								aria-label="Order by"
 								className="dropdown__label"
 								htmlFor="select-sort">

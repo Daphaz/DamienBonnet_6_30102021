@@ -5,6 +5,7 @@
 	padding: 43px 100px 0px;
 
 	&__logo {
+		display: inline-block;
 		border: 1px solid transparent;
 		&:focus {
 			border: 1px solid $clr_red400;

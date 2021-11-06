@@ -6,6 +6,7 @@ const CardMedia = ({ onclick, handleClickMedia, ...rest }) => {
 		<figure role="listitem" className="media">
 			<div
 				role="link"
+				tabIndex="0"
 				className="media__body"
 				aria-label="Lilac breasted roller, closeup view"
 				onClick={() => handleClickMedia(rest)}>

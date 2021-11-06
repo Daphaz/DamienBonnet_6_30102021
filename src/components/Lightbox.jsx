@@ -4,8 +4,16 @@ import arrowRight from "../assets/arrow-right.svg";
 import Close from "../assets/close.svg";
 import useKeyboard from "../hooks/useKeyboard";
 
-const LightboxItem = ({ title, image, alt, video, className }) => (
-	<picture className={className}>
+const LightboxItem = ({
+	title,
+	image,
+	alt,
+	video,
+	className,
+	ariaHidden,
+	tabIndex,
+}) => (
+	<div className={className} aria-hidden={!ariaHidden} tabIndex={tabIndex}>
 		{image && (
 			<img src={`/assets/media/${image}`} alt={alt} width="1050" height="900" />
 		)}
@@ -16,7 +24,7 @@ const LightboxItem = ({ title, image, alt, video, className }) => (
 			</video>
 		)}
 		<p className="lightbox__title">{title}</p>
-	</picture>
+	</div>
 );
 
 const Lightbox = ({ items, firstItem, handleClose }) => {
@@ -69,6 +77,7 @@ const Lightbox = ({ items, firstItem, handleClose }) => {
 				aria-label="image closeup view"
 				className="lightbox__modal">
 				<button
+					tabIndex="0"
 					onClick={prevSlide}
 					role="link"
 					className="lightbox__btn"
@@ -83,17 +92,21 @@ const Lightbox = ({ items, firstItem, handleClose }) => {
 							className={
 								slideIndex === index + 1 ? "lightbox__item visible" : "lightbox__item"
 							}
+							ariaHidden={slideIndex === index + 1}
+							tabIndex={slideIndex === index + 1 ? "0" : "-1"}
 						/>
 					))}
 				</div>
 				<div className="lightbox__containerIcon">
 					<button
+						tabIndex="0"
 						aria-label="Close dialog"
 						className="lightbox__close"
 						onClick={handleClose}>
 						<img width="42" height="42" src={Close} alt="Close dialog" />
 					</button>
 					<button
+						tabIndex="0"
 						onClick={nextSlide}
 						role="link"
 						className="lightbox__btn"

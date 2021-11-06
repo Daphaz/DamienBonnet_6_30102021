@@ -32,6 +32,10 @@
 		height: 60px;
 		padding-top: 23px;
 		padding-left: 10px;
+		border: 1px solid transparent;
+		&:focus {
+			border: 1px solid $clr_white;
+		}
 	}
 
 	&__icon {
@@ -59,5 +63,9 @@
 		color: $clr_black;
 		margin-right: 25px;
 		padding-top: 11px;
+		border: 1px solid transparent;
+		&:focus {
+			border: 1px solid $clr_red400;
+		}
 	}
 }
