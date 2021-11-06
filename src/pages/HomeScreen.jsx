@@ -4,14 +4,16 @@ import usePhotographer from "../hooks/usePhotographer";
 
 import Header from "../components/Header";
 import CardPhotographer from "../components/CardPhotographer";
+import ScrollTop from "../components/ScrollTop";
 
 const HomeScreen = () => {
 	const { photographers, filterByTag } = usePhotographer();
 
 	return (
 		<>
+			<ScrollTop />
 			<Header showNav onClick={filterByTag} />
-			<main className="main container">
+			<main id="main" className="main container">
 				<h1 className="main__title container" aria-label="Nos photographes">
 					Nos photographes
 				</h1>

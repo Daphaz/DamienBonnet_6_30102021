@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import data from "../mock/data.json";
+import data from "../mock/datas.json";
 
 const useMedia = (photographerId) => {
 	const [photographerMedias, setPhotographerMedia] = useState(null);
@@ -60,9 +60,6 @@ const useMedia = (photographerId) => {
 	};
 
 	const incrementLikeMedia = (mediaId) => {
-		// const tempMedia = fakeCallData();
-		// const originalNbLike = tempMedia.find(({ id }) => mediaId === id).likes;
-
 		const dataFiltered = photographerMedias
 			.map((item) => {
 				if (item.id === mediaId) {
@@ -77,14 +74,6 @@ const useMedia = (photographerId) => {
 
 		setPhotographerMedia(dataFiltered);
 	};
-
-	// const getTotalPrice = () => {
-	// 	const totalLikes = photographerMedias.reduce((acc, item) => {
-	// 		return acc + item.likes;
-	// 	}, 0);
-
-	// 	return totalLikes;
-	// };
 
 	return {
 		photographerMedias,

@@ -1,11 +1,9 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-const HomeScreen = React.lazy(() => import("./pages/HomeScreen"));
-const PhotographerScreen = React.lazy(() =>
-	import("./pages/PhotographerScreen")
-);
-const FourOneFour = React.lazy(() => import("./pages/FourOneFour"));
+import HomeScreen from "./pages/HomeScreen";
+import PhotographerScreen from "./pages/PhotographerScreen";
+import FourOneFour from "./pages/FourOneFour";
 
 const routes = [
 	{

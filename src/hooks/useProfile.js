@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import data from "../mock/data.json";
+import data from "../mock/datas.json";
 
 const useProfile = (id) => {
 	const [profile, setProfile] = useState(null);
