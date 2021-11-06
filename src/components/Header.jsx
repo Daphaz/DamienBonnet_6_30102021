@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 import Navbar from "./Navbar";
 
@@ -11,12 +12,7 @@ const Header = ({ showNav, onClick }) => {
 				to="/home"
 				aria-label="Fisheye Home page"
 				aria-current="page">
-				<img
-					src="/assets/logo.svg"
-					alt="Fisheye Home page"
-					width="200"
-					height="50"
-				/>
+				<img src={logo} alt="Fisheye Home page" width="200" height="50" />
 			</Link>
 			{showNav && <Navbar onClick={onClick} />}
 		</header>
