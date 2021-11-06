@@ -9,11 +9,11 @@ import LoadingScreen from "./pages/LoadingScreen";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<React.Suspense fallback={<LoadingScreen />}>
-			<Router>
+		<Router>
+			<React.Suspense fallback={<LoadingScreen />}>
 				<App />
-			</Router>
-		</React.Suspense>
+			</React.Suspense>
+		</Router>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

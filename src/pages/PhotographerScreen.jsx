@@ -128,7 +128,7 @@ const PhotographerScreen = ({ match: { params } }) => {
 							<div className="profile__img">
 								<img
 									style={loaded ? {} : { display: "none" }}
-									src={`/assets/profile/${profile.portrait.toLowerCase()}`}
+									src={`/assets/profile/${profile.portrait}`}
 									alt=""
 									onLoad={() => setLoaded(true)}
 								/>
